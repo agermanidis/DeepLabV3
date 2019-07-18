@@ -41,7 +41,7 @@ def segment(model, inputs):
   return seg_map.astype(np.uint8)
 
 
-@runway.command('mask', inputs={'image': runway.image}, outputs={'masked_image': runway.image})
+@runway.command('mask_person', inputs={'image': runway.image}, outputs={'masked_image': runway.image})
 def mask(model, inputs):
   _, seg_map = model.run(inputs['image'])
   mask = np.stack((seg_map,)*4, axis=-1)
